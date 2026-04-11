@@ -24,7 +24,7 @@ def draw_shape():
     
 
     t.penup()
-    t.goto(x_start, math.sin(x_start / wavelength) * amplitude)
+    t.goto(x_start, math.sin((x_start / wavelength) + phase) * amplitude)
     t.pendown()
 
     for x in range(x_start, x_end + 1):
@@ -35,5 +35,21 @@ def draw_shape():
 
     screen.update()
 
-draw_shape()
+def animate():
+    global phase
+    t.clear()
+    phase += 0.08
+    draw_shape()
+    screen.ontimer(animate, 16)
+
+def draw_design():
+    draw_shape()
+
+"""screen.listen()
+screen.onkey(, "space")
+screen.onkey(, "Escape")
+screen.onkey(, "q")
+screen.onclick()"""
+
+animate()
 turtle.done()
