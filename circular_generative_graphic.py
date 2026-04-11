@@ -16,9 +16,18 @@ phase = 25
 palette = rainbow_hcl(c=250, l=50)
 color_range = palette.colors(256)
 
+# User input: where the wave begins horizontally.
+# Negative numbers start left of center, positive start right.
+raw_x = input("Where should the wave start left/right? (whole number, Enter for default): ").strip()
+x_start = -200 if raw_x == "" else int(raw_x)
+
+# User input: where the wave ends horizontally.
+# Negative numbers start left of center, positive start right.
+raw_x = input("Where should the wave end? (whole number, Enter for default): ").strip()
+x_end = 200 if raw_x == "" else int(raw_x)
+
+
 def draw_shape():
-    x_start = -200
-    x_end = 200
     wavelength = 40
     amplitude = 50
     
