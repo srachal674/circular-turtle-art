@@ -4,23 +4,23 @@ from colorspace import rainbow_hcl
 
 t = turtle.Turtle()
 t.speed(0)
-t.pensize(50)
+t.pensize(25)
 
 
 screen = turtle.Screen()
-screen.bgcolor("#000066")
+screen.bgcolor("#010140")
 screen.tracer(0, 0)
-phase = 25
+phase = 16
 
 # Create a full-spectrum HCL rainbow palette (256 shades)
-palette = rainbow_hcl(c=250, l=50)
+palette = rainbow_hcl(c=90, l=40)
 color_range = palette.colors(256)
 
 def draw_shape():
     x_start = -200
     x_end = 200
-    wavelength = 40
-    amplitude = 50
+    wavelength = 30
+    amplitude = 80
     
 
     t.penup()
