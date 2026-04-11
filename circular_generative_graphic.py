@@ -36,18 +36,19 @@ except ValueError:
 def draw_shape():
     wavelength = 40
     amplitude = 50
-    span = x_end - x_start
+    start_x, end_x = sorted((x_start, x_end))
+    span = end_x - start_x
     if span == 0:
         span = 1
     
 
     t.penup()
-    t.goto(x_start, math.sin((x_start / wavelength) + phase) * amplitude)
+    t.goto(start_x, math.sin((start_x / wavelength) + phase) * amplitude)
     t.pendown()
 
-    for x in range(x_start, x_end + 1):
+    for x in range(start_x, end_x + 1):
         y = math.sin((x / wavelength) + phase) * amplitude
-        color_index = int((x - x_start) / span * (len(color_range) - 1))
+        color_index = int((x - start_x) / span * (len(color_range) - 1))
         t.pencolor(color_range[color_index])
         t.goto(x, y)
 
